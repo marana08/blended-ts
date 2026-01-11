@@ -3,8 +3,16 @@
 // Створіть тип для user.
 // Зробіть address необов’язковим.
 // Перевірте, що user.address?.city не викликає помилки.
+type User = {
+  name: string;
+  address? : UserAddress;
+}
 
-const user = {
+interface UserAddress{
+  city: string;
+}
+
+const user: User = {
   name: "Alice",
   address: {
     city: "Kyiv"

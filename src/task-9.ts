@@ -12,3 +12,49 @@
 // 5. Переконайтесь, що функція getLastElement працює коректно для різних типів контейнерів (масиви чисел, масиви рядків).
 // Примітка:
 // Контейнер має підтримувати тільки один тип елементів.
+
+interface Container<T> {
+    items: T[];
+    addItem: (item: T) => void;
+    getItem: (index: number) => T;
+}
+
+const numberContainer: Container<number> = {
+    items: [1, 2, 3, 4],
+    addItem(item) {
+        this.items.push(item)
+    },
+    getItem(index) {
+        return this.items[index];
+    },
+};
+
+// numberContainer.addItem(42)
+// console.log(numberContainer.items);
+
+// console.log(numberContainer.getItem(3));
+
+const stringContainer: Container<string> = {
+    items: ["a", "b", "c", "d"],
+    addItem(item) {
+        this.items.push(item);
+    },
+    getItem(index) {
+        return this.items[index];
+    },
+};
+
+// console.log(stringContainer.getItem(2));
+
+function getLastElement<T>(container: Container<T>): T {
+    return container.items[container.addItem.length - 1];
+}
+console.log(getLastElement(stringContainer));
+
+// function sum<T extends number | string>(a: T, b: T): T {
+//   return (a + b) as T;
+// }
+
+
+
+

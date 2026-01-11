@@ -5,7 +5,11 @@
 // Створіть тип Action, що може приймати як значення лише рядки increment та decrement.
 // Типізуйте функцію повністю.
 
-function reducer(state, action) {
+type Action = {
+    type: "increment" | "decrement";
+}
+
+function reducer(state: number, action: Action  ): number {
     switch (action.type) {
         case "increment":
             return state + 1;
@@ -15,3 +19,5 @@ function reducer(state, action) {
             return state;
     }
 }
+
+console.log(reducer(5, { type: "increment" })); 

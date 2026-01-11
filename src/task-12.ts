@@ -3,6 +3,12 @@
 // Завдання:
 // Типізуйте параметр callback, щоб це була функція, яка приймає рядок і повертав void.
 
-function sendDoneStatus(callback) {
+type Callback = (message: string) => void;
+
+function sendDoneStatus(callback: Callback) {
   callback("done");
 }
+
+sendDoneStatus((message) => {
+  console.log(":Status:", message);    
+});

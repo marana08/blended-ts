@@ -22,3 +22,16 @@ console.log(createUserCard({ username: "Max", age: 30 }, "guest"));
 // Max (30) — guest from Unknown
 
 // 5. Якщо city немає — виводьте "Unknown"
+
+type User = {
+    username: string;
+    age: number;
+    city?: string;
+};
+
+type Role = "admin" | "user" | "guest";
+
+function createUserCard(user: User, role: Role): string {
+    const city = user.city || "unknown";
+    return `${user.username} (${user.age}) — ${role} from ${city}`;
+}

@@ -8,8 +8,22 @@
 // 3. Функція повинна повертати масив отриманих об’єктів.
 // 4. Переконайтеся, що результат функції має правильну типізацію, а TypeScript не видає помилок.
 // Приклад виклику:
-toUserObjects(users);
+// toUserObjects(users);
 // Повертає: [{ id: 1, name: "alice" }, { id: 2, name: "bob" }, { id: 3, name: "charlie" }]
 
 
 const users = ["alice", "bob", "charlie"];
+
+interface User {
+    id: number;
+    name: string;
+}
+
+function toUserObjects(names: string[]): User[] {
+    return names.map((name, index) => ({
+        id: index + 1,
+            name,
+    }));
+}
+
+console.log(toUserObjects(users));
