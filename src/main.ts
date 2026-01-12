@@ -18,3 +18,4 @@ import "./task-17";
 import "./task-18";
 import "./task-19";
 import "./task-20";
+import "./study";
